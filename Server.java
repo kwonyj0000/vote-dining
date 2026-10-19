@@ -17,7 +17,8 @@ public class Server {
     private static final Map<String, Integer> votes = new LinkedHashMap<>();
 
     public static void main(String[] args) throws IOException {
-        HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
+        int port = Integer.parseInt(System.getenv().getOrDefault("PORT", "8080"));
+        HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
 
         // 정적 파일 서빙
         server.createContext("/", Server::handleStatic);
@@ -29,7 +30,7 @@ public class Server {
         server.createContext("/api/delete", Server::handleDelete);
 
         server.start();
-        System.out.println("서버 시작: http://localhost:8080");
+        System.out.println("서버 시작: http://localhost:" + port);
     }
 
     // --- 정적 파일 핸들러 ---

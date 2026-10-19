@@ -28,3 +28,12 @@ java Server
 
 - 주석은 한국어로 작성
 - 변수명·메서드명은 영문(camelCase) 사용
+
+## Commit Rules
+
+- 푸시 전 반드시 `javac Server.java` 컴파일 성공 확인
+- 커밋 메시지 형식: `{type}: 한 줄 설명`
+  - `feat` — 새 기능
+  - `fix` — 버그 수정
+  - `docs` — 문서 변경
+  - `refactor` — 기능 변경 없는 코드 정리
